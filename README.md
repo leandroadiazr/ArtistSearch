@@ -1,5 +1,5 @@
 # ArtistSearch
-Assesment
+# Assesment
 
-Networking Test Created
-Updated List With ArtWork event that is not part of the assessment but is a nice functionality to have.
+# Networking Test Created,
+# Updated List With ArtWork event that is not part of the assessment but is a nice functionality to have.
