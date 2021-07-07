@@ -37,7 +37,6 @@ class ResultsViewController: UIViewController {
         tableView?.register(ResultsCell.self, forCellReuseIdentifier: ResultsCell.reuseID)
         tableView?.delegate = self
         tableView?.dataSource = self
-        tableView?.backgroundColor = .systemBlue
         tableView?.rowHeight = 90
         
         guard let tableView = tableView else { return}
