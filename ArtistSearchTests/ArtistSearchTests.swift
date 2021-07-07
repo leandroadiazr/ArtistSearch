@@ -18,16 +18,24 @@ class ArtistSearchTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    class MockURLSession: URLSession {
+      var cachedUrl: URL?
+        override func dataTask(with url: URL, completionHandler completed: @escaping(Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        self.cachedUrl = url
+            return URLSession.shared.dataTask(with: url)
+      }
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    
+    func testGetArtistSongsWithExpectedURL() throws {
+        let networkManager = NetworkManager()
+        let mockURLSession  = URL(string: "itunes.search.com")
+        
+        networkManager.getArtist(for: "bruno") { artist in
+            XCTAssertEqual(mockURLSession?.absoluteString, "itunes.search.com")
+            XCTAssertEqual(mockURLSession?.path, "/bruno")
         }
     }
+
 
 }
