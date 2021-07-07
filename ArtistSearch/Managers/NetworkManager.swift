@@ -5,11 +5,11 @@
 //  Created by Leandro Diaz on 7/6/21.
 //
 
-import Foundation
+import UIKit
 
 class NetworkManager {
-    
     static let shared = NetworkManager()
+    let cache = NSCache<NSString, UIImage >()
     let baseURL =  "https://itunes.apple.com/search?term="
     
     func getArtist(for artist: String, completed: @escaping (Result<[Artist]?, ErrorMessages>) -> Void){

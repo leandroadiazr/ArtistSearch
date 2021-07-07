@@ -22,6 +22,8 @@ class ResultsCell: UITableViewCell {
     var releaseDate         = CustomLabel(textAlignment: .left, fontSize: 12)
     var trackPrice          = CustomLabel(textAlignment: .left, fontSize: 12)
     
+    let viewImage   = Poster(frame: .zero)
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         configure()
@@ -45,6 +47,7 @@ class ResultsCell: UITableViewCell {
         primaryGenreName.text = artist.primaryGenreName
         releaseDate.text    =  dateString
         trackPrice.text     = "$\(artist.trackPrice ?? 0.0)"
+        viewImage.downloadImage(from: artist.artworkUrl60)
     }
     
     private func configure() {
@@ -63,6 +66,8 @@ class ResultsCell: UITableViewCell {
             label.textColor = .white
             addSubview(label)
         }
+        
+        addSubview(viewImage)
         setupConstraints()
     }
     
@@ -71,8 +76,14 @@ class ResultsCell: UITableViewCell {
         let minPadding: CGFloat = 2
         
         NSLayoutConstraint.activate([
+            
+            viewImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
+            viewImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            viewImage.widthAnchor.constraint(equalToConstant: 80),
+            viewImage.heightAnchor.constraint(equalToConstant: 80),
+            
             artistLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
-            artistLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            artistLabel.leadingAnchor.constraint(equalTo: viewImage.trailingAnchor, constant: padding),
             artistLabel.widthAnchor.constraint(equalToConstant: 100),
             
             artistName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: padding),
@@ -80,7 +91,7 @@ class ResultsCell: UITableViewCell {
             artistName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             
             trackLabel.topAnchor.constraint(equalTo: artistLabel.bottomAnchor, constant: minPadding),
-            trackLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            trackLabel.leadingAnchor.constraint(equalTo: viewImage.trailingAnchor, constant: padding),
             trackLabel.widthAnchor.constraint(equalToConstant: 100),
             
             trackName.topAnchor.constraint(equalTo: artistName.bottomAnchor, constant: minPadding),
@@ -88,7 +99,7 @@ class ResultsCell: UITableViewCell {
             trackName.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             
             genreLabel.topAnchor.constraint(equalTo: trackLabel.bottomAnchor, constant: minPadding),
-            genreLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            genreLabel.leadingAnchor.constraint(equalTo: viewImage.trailingAnchor, constant: padding),
             genreLabel.widthAnchor.constraint(equalToConstant: 100),
             
             primaryGenreName.topAnchor.constraint(equalTo: trackName.bottomAnchor, constant: minPadding),
@@ -96,14 +107,14 @@ class ResultsCell: UITableViewCell {
             primaryGenreName.widthAnchor.constraint(equalToConstant: 100),
             
             releaseLabel.topAnchor.constraint(equalTo: genreLabel.bottomAnchor, constant: minPadding),
-            releaseLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            releaseLabel.leadingAnchor.constraint(equalTo: viewImage.trailingAnchor, constant: padding),
             releaseLabel.widthAnchor.constraint(equalToConstant: 100),
             
             releaseDate.topAnchor.constraint(equalTo: primaryGenreName.bottomAnchor, constant: minPadding),
             releaseDate.leadingAnchor.constraint(equalTo: releaseLabel.trailingAnchor, constant: padding),
             
             priceLabel.topAnchor.constraint(equalTo: releaseLabel.bottomAnchor, constant: minPadding),
-            priceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: padding),
+            priceLabel.leadingAnchor.constraint(equalTo: viewImage.trailingAnchor, constant: padding),
             priceLabel.widthAnchor.constraint(equalToConstant: 100),
             
             trackPrice.topAnchor.constraint(equalTo: releaseDate.bottomAnchor, constant: minPadding),

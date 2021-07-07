@@ -23,9 +23,10 @@ struct Artist: Codable {
     let trackPrice: Double?
     let releaseDate: Date
     let primaryGenreName: String
+    let artworkUrl60: String
     
     enum CodingKeys: String, CodingKey {
-        case artistName, trackName, trackPrice, releaseDate, primaryGenreName
+        case artistName, trackName, trackPrice, releaseDate, primaryGenreName, artworkUrl60
     }
 }
 

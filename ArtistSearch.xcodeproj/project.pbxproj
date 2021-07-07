@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E81907602695E90B007284ED /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = E819075F2695E90B007284ED /* Poster.swift */; };
 		E861FC2F2694F53E0084C133 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861FC2E2694F53E0084C133 /* AppDelegate.swift */; };
 		E861FC312694F53E0084C133 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861FC302694F53E0084C133 /* SceneDelegate.swift */; };
 		E861FC332694F53E0084C133 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861FC322694F53E0084C133 /* ViewController.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E819075F2695E90B007284ED /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		E861FC2B2694F53E0084C133 /* ArtistSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtistSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E861FC2E2694F53E0084C133 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E861FC302694F53E0084C133 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				E8DD2A8826951BE50065738B /* ArtistData.swift */,
+				E819075F2695E90B007284ED /* Poster.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				E861FC332694F53E0084C133 /* ViewController.swift in Sources */,
 				E861FC762694FC810084C133 /* CustomLabel.swift in Sources */,
 				E861FC2F2694F53E0084C133 /* AppDelegate.swift in Sources */,
+				E81907602695E90B007284ED /* Poster.swift in Sources */,
 				E861FC662694F78F0084C133 /* CustomTextField.swift in Sources */,
 				E861FC732694FB570084C133 /* ResultsCell.swift in Sources */,
 				E861FC692694F9F70084C133 /* ResultsViewController.swift in Sources */,
